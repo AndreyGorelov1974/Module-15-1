@@ -10,7 +10,32 @@ a = {-2,1,-3,4,-1,2,1,-5,4}
 Необходимо вывести 3 и 6.*/
 #include <iostream>
 
+const int sizeArray = 9;
+
 int main()
 {
-	
+	int arr[sizeArray] = { -2,1,-3,4,-1,2,1,-5,4 };
+	//максимальная сумма
+	int maxSum = 0;
+	//текущая сумма
+	int currentSum = 0;
+	//индексы элементов дающих максимальную сумму
+	int iMax = 0;
+	int jMax = 0;
+
+	for (int i = 0; i < sizeArray; ++i) {
+		for (int j = i; j < sizeArray; ++j) {
+			for (int k = i; k <= j; ++k) {
+				currentSum += arr[k];
+			}
+			if (currentSum > maxSum) {
+				iMax = i;
+				jMax = j;
+			}
+			int currentSum = 0;
+		}
+	}
+	std::cout << "the array elements located between the index - " << iMax << " and the index - " << jMax << " give the maximum sum" << std::endl;
 }
+
+
