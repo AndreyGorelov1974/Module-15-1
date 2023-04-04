@@ -22,17 +22,21 @@ int main()
 	//индексы элементов дающих максимальную сумму
 	int iMax = 0;
 	int jMax = 0;
-
+	//два цикла для перебора всех возможных пар элементов
 	for (int i = 0; i < sizeArray; ++i) {
 		for (int j = i; j < sizeArray; ++j) {
+			//подсчёт текущей суммы
 			for (int k = i; k <= j; ++k) {
 				currentSum += arr[k];
 			}
+			//если текущая сумма больше максимальной переписываем индексы  и максимальную сумму
 			if (currentSum > maxSum) {
 				iMax = i;
 				jMax = j;
+				maxSum = currentSum;
 			}
-			int currentSum = 0;
+			//сброс текущей суммы перед новой итерацией
+			currentSum = 0;
 		}
 	}
 	std::cout << "the array elements located between the index - " << iMax << " and the index - " << jMax << " give the maximum sum" << std::endl;
