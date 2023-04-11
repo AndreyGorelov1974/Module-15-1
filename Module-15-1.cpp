@@ -10,11 +10,22 @@ a = {-2,1,-3,4,-1,2,1,-5,4}
 Необходимо вывести 3 и 6.*/
 #include <iostream>
 
-const int sizeArray = 9;
+const int sizeArray = 10;
 
 int main()
 {
-	int arr[sizeArray] = { -2,1,-3,4,-1,2,1,-5,4 };
+	int arr[sizeArray];
+
+	//заполняем массив случайными числами
+	srand(time(NULL));
+	for (int i = 0; i < sizeArray; ++i) {
+		rand() % 2 == 0 ? arr[i] = rand() % 100 : arr[i] = -1 * (rand() % 100);
+	}
+
+	for (int i = 0; i < sizeArray; ++i) {
+		std::cout << arr[i] << " ";
+	}
+
 	//максимальная сумма
 	int maxSum = 0;
 	//текущая сумма
